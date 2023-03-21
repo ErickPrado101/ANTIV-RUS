@@ -1,0 +1,29 @@
+import requests
+import json
+import subprocess
+
+caminho_arquivo = 'caminho/do/arquivo'
+# Configure o URL e a chave de API para a chamada da API do Microsoft Defender Antivirus;ConfigurAR as informações do arquivo;  # ALTERAR o cabeçalho ;EnviAR a solicitação;
+def check_file_for_virus(file_path):    
+    url = "https://api.livemeeting.ms/api/file/scan"
+    api_key = "<SUA_CHAVE_DE_API_AQUI>"   
+    files = {'file': open(file_path, 'rb')}   
+    headers = {'Ocp-Apim-Subscription-Key': api_key}
+    response = requests.post(url, headers=headers, files=files)
+    result = json.loads(response.content)    
+    if result["detected"] == True:
+        print("O arquivo foi detectado como um vírus!")
+        print("CUIDADO!!!")
+        print("CUIDADO!!!")
+        print("CUIDADO!!!")
+        print("O arquivo foi detectado como um vírus!")
+        print("CUIDADO!!!")
+        print("CUIDADO!!!")
+        print("CUIDADO!!!")
+        print("O arquivo foi detectado como um vírus!")
+    else:
+        print("O arquivo está limpo.")
+check_file_for_virus("C:caminho/para/o/arquivo/suspeito.exe")
+subprocess.run(caminho_arquivo, shell=True)
+
+
